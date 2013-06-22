@@ -58,7 +58,7 @@ CREATE TABLE Vypujceni
 (
 	vypujcka_id        NUMBER(8,2) NOT NULL,
 	datum_vypujceni    DATE NOT NULL,
-	datum_vraceni      VARCHAR2(50) NULL,
+	datum_vraceni      DATE NULL,
 	ridic_id           NUMBER(8,2) NOT NULL,
 	vozidlo_id         NUMBER(8,2) NOT NULL,
 	vzdalenost_celkem  NUMBER(8,2) NOT NULL
