@@ -25,7 +25,7 @@ create type type_vozidlo as object (
 	"DATUM_PORIZENI" DATE,
 	"NAJETO"	NUMBER(10),
 	"SPZ"		NVARCHAR2(50),
-	"MODEL_ID"	REF MODEL_ID,
+	"MODEL_ID"	REF TYPE_MODEL,
 	"POBOCKA_ID" REF TYPE_POBOCKA
 );
 
