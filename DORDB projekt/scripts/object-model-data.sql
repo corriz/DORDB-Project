@@ -44,9 +44,9 @@ update OBJ_VYPUJCENI voz set voz.VOZIDLO_ID = (
 );
 
 /*NAPLNI JIZDY*/
-insert into OBJ_JIZDY (JIZDA_ID,START,CIL,DATUM,VZDALENOST) (SELECT JIZDA_ID,START,CIL,DATUM,VZDALENOST);
-update OBJ_JIZDY voz set voz.vypujceni_id = (
-	select REF(vpref) from OBJ_VOZIDLO vozref where vpref.vypujceni_id = (
-		select vyp.VOZIDLO_ID from JIZDY vyp where vyp.JIZDA_id = voz.JIZDA_id
-	)
+insert into OBJ_JIZDY ("JIZDY_ID","START",CIL,DATUM,VZDALENOST) (SELECT "JIZDA_ID","START",CIL,DATUM,VZDALENOST FROM JIZDY);
+UPDATE OBJ_JIZDY obj set obj.vypujceni_id = (
+  select REF(ovr) from obj_vypujceni ovr where ovr.vypujcka_id = (
+    select j.vypujceni_id from jizdy j where j.jizda_id = obj.jizdy_id
+    )
 );

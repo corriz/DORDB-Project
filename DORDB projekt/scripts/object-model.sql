@@ -39,7 +39,7 @@ create type type_vypujceni as object (
 );
 
 create type type_jizdy as object (
-	"JIZDY_ID"	NUMBER(10),
+	"JIZDA_ID"	NUMBER(10),
 	"START" NVARCHAR2(50),
 	"CIL"	NVARCHAR2(50),
 	"DATUM" DATE,
