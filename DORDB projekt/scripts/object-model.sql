@@ -13,11 +13,11 @@ create type type_model as object (
 	"SPOTREBA"	FLOAT (10)
 );
 
-create type type_ridic as object (
+create type type_ridici as object (
 	"RIDIC_ID" 		NUMBER(10),
 	"JMENO" 		NVARCHAR2(50),
 	"PRIJMENI" 		NVARCHAR2(50),
-	"POBOCKA_ID" 	REF POBOCKA_ID
+	"POBOCKA_ID" 	REF TYPE_POBOCKA
 );
 
 create type type_vozidlo as object (
@@ -26,15 +26,15 @@ create type type_vozidlo as object (
 	"NAJETO"	NUMBER(10),
 	"SPZ"		NVARCHAR2(50),
 	"MODEL_ID"	REF MODEL_ID,
-	"POBOCKA_ID" REF POBOCKA_ID
+	"POBOCKA_ID" REF TYPE_POBOCKA
 );
 
 create type type_vypujceni as object (
 	"VYPUJCKA_ID"	NUMBER(10),
 	"DATUM_VYPUJCENI" DATE,
 	"DATUM_VRACENI" DATE,
-	"RIDIC_ID"	REF RIDIC_ID,
-	"VOZIDLO_ID"	REF VOZIDLO_ID
+	"RIDIC_ID"	REF TYPE_RIDICI,
+	"VOZIDLO_ID"	REF TYPE_VOZIDLO
 	"VZDALENOST_CELKEM" NUMBER(10),
 );
 
@@ -44,7 +44,7 @@ create type type_jizdy as object (
 	"CIL"	NVARCHAR2(50),
 	"DATUM" DATE,
 	"VZDALENOST" NUMBER(10),
-	"VYPUJCENI_ID" REF VYPUJCENI_ID
+	"VYPUJCENI_ID" REF TYPE_VYPUJCENI
 );
 
 CREATE TABLE OBJ_POBOCKA of TYPE_POBOCKA;
@@ -59,7 +59,7 @@ CREATE TABLE OBJ_VOZIDLO of TYPE_VOZIDLO
 foreign key (POBOCKA_ID) references OBJ_POBOCKA);
 
 CREATE TABLE OBJ_VYPUJCENI of TYPE_VYPUJCENI
-(foreign key (RIDIC_ID) references OBJ_RIDIC,
+(foreign key (RIDICI_ID) references OBJ_RIDICI,
 foreign key (VOZIDLO_ID) references OBJ_VOZIDLO);
 
 CREATE TABLE OBJ_JIZDY of TYPE_JIZDY
