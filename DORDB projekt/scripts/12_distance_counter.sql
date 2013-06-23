@@ -31,6 +31,10 @@ for each row
 BEGIN
   AVR_DISTANCE_COUNTER(:NEW.jizda_id);
 END;
-
-
-
+/
+SELECT v.ridic_id from vypujceni v inner join jizdy j 
+  on v.vypujcka_id = j.vypujceni_id 
+  where j.jizda_id = 15; 
+SELECT COUNT(j.jizda_id) FROM JIZDY j INNER JOIN VYPUJCENI ON
+  j.vypujceni_id = vypujceni.vypujcka_id
+  where VYPUJCENI.RIDIC_ID = 15;
