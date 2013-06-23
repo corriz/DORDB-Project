@@ -2968,3 +2968,7 @@ INSERT INTO jizdy ("START", CIL, DATUM, VZDALENOST, VYPUJCENI_ID) VALUES ('Herfe
 INSERT INTO jizdy ("START", CIL, DATUM, VZDALENOST, VYPUJCENI_ID) VALUES ('Ledbury', 'Dunedin', '15.1.2013', 291, 999);
 INSERT INTO jizdy ("START", CIL, DATUM, VZDALENOST, VYPUJCENI_ID) VALUES ('Kingston-on-Thames', 'Lens-Saint-Servais', '23.2.2013', 145, 1000);
 INSERT INTO jizdy ("START", CIL, DATUM, VZDALENOST, VYPUJCENI_ID) VALUES ('Kingston-on-Thames', 'Linz', '24.2.2013', 535, 1000);
+
+update vypujceni
+set vzdalenost_celkem = (select sum(vzdalenost) from jizdy where jizdy.vypujceni_id = vypujceni.vypujcka_id)
+where exists (select * from jizdy where jizdy.vypujceni_id = vypujceni.vypujcka_id);
