@@ -111,8 +111,12 @@ body {
 					<div class="tab-pane" id="u3">
 						<h4>3. Slovní návrh API rozhraní „business logiky“ pro dva procesy</h4>
 						<ol>
-							<li><strong>Přidání vypůjčení</strong><br />Na základě osobního čísla a spz vozidla je založena výpujčka. Při zadládání se otestuje zda je možné vozidlo zapůjčit. Kontroluje se u již existujících záznamů datum_vypujceni a datum_vraceni, tak by se datumy v žádném případě nepřekrývaly.</li>
-							<li><strong>Přidání jízdy</strong><br />Na základě osobního čísla řidiče, spz vozidla je založena jízda, která odpovídá určitému datumu a také se zaeviduje start a cíl jízdy. Kontroluje se především zda exustuje nějaká výpujčka ke zvolenému datu a řidiči s vozidlem.</li>
+							<li><strong>Přidání vypůjčení</strong><br />Vstupními parametry procesu jsou osobní číslo řidiče, spz vozidla a datum, ke kterému výpujčka je platná.
+							V rámci procesu je nutné ověřit platnost zadaných údajů a provést nalezení odpovídajících záznamů. Následně jsou zkontrolovány existující výpujčky a v případě 
+							kolize s jinou výpujčkou je vrácena zpráva. Po úspěšném založení výpujčky je možné vložit jízdy.</li>
+							<li><strong>Přidání jízdy</strong><br />Vstupními parametry procesu jsou osobní číslo řidiče, spz vozidla, názvy startu a cíle jízdy včetně 
+							vzdálenosti a datum, ke kterému jízda je platná. Je nutné zkontrolovat platnost údajů a vyhledat odpovídající záznamy. Také jenutné ověřit zda k danému 
+							datu, řidiči a vozidlu existuje otevřenná výpujčka;jinak není možné jízdu založit a je vrácena zpráva.</li>
 						</ol>
 					</div>
 <!-- 4 ================================================== -->
@@ -169,13 +173,17 @@ body {
 <!-- 10 ================================================== -->
 					<div class="tab-pane" id="u10">
 						<h4>10. Skript pro vytvoření balíku (package) a procedur „business logiky“ z bodu 3</h4>
-						
+						<ul>
+							<li><a href="scripts/project-sp.sql">Vytvoření business logiky</a></li>
+						</ul>
 					</div>
 <!-- 11 ================================================== -->
 					<div class="tab-pane" id="u11">
 						<h4>11. Testovací skript (včetně výstupu spool obdrženého po spuštění) pro obě procedury, včetně souvisejících dotazů, které
 							ověří, že každá procedura provedla to co měla</h4>
-						
+						<ul>
+							<li><a href="scripts/sp-spool.sql">Dotazy a výstup spool nad business logikou</a></li>
+						</ul>
 					</div>
 <!-- 12 ================================================== -->
 					<div class="tab-pane" id="u12">
