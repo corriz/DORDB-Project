@@ -70,6 +70,7 @@ BEGIN
     vyid number;
     cnt number;
     dt date;
+    s number;
   begin
     begin
     
@@ -101,6 +102,12 @@ BEGIN
     insert into jizdy ("START", cil, datum, vzdalenost, vypujceni_id) values (START_IN, CIL_IN, DATUM_IN, VZDALENOST_IN, vyid);
     
     DBMS_OUTPUT.PUT_LINE('jizda byla zalozena');
+    
+    select sum(vzdalenost) into s from jizdy j where j.vypujceni_id = vyid;
+    
+    update vypujceni set vzdalenost_celkem = s where vypujcka_id = vyid;
+    
+    DBMS_OUTPUT.PUT_LINE('vzdalenost_celkem aktualizovana');
     
   end;
   
