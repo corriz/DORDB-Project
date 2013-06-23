@@ -1,4 +1,5 @@
---1.Vypiše všechny øidièe, kteøí najezdili více jak 35000km
+--1.Vypise vsechny ridice, kteri najezdili vice jak 35000km
+SET AUTOTRACE ON;
 select
   * 
 from 
@@ -16,7 +17,8 @@ where
       sum(vzdalenost_celkem) >= 35000
   );
 
---2.Vypíše automobil a model (podle ujetých kilometru) a jejich model.
+--2.Vypise automobil a model (podle ujetych kilometru) a jejich model.
+SET AUTOTRACE ON;
 select
   m.znacka
   ,m.model
@@ -37,7 +39,8 @@ from
   ) t on v.vozidlo_id = t.vozidlo_id
 order by
   t.celkem desc;
---3.Vypíše všechny øidièe, kteøí za leden, únor a bøezen roku 2013 udìlali alespoò 20 jízd
+--3.Vypise vsechny ridice, kteri za leden, unor a brezen roku 2013 udelali alespon 20 jizd
+SET AUTOTRACE ON;
 select
   ridici.*
 from
@@ -55,7 +58,8 @@ from
   ) t
   join ridici on t.ridic_id = ridici.ridic_id
 ;
---4.Vypíše (všechny) datum vypujèení, model, sqz a jméno øidièe, podle vzdálenosti, ktrou ujeli na jedno vypùjèení.
+--4.Vypse (vsechny) datum vypujceni, model, sqz a jmeno ridice, podle vzdalenosti, ktrou ujeli na jedno vypujceni.
+SET AUTOTRACE ON;
 select
   v.datum_vypujceni
   ,m.znacka || ' ' || m.model vozidlo_model
@@ -70,7 +74,8 @@ from
 order by
   v.vzdalenost_celkem desc
 ;
---5.Vypíše všechny øidièe, kterí øídili vozidlo, model MAN
+--5.Vypse vsechny ridice, kteri ridili vozidlo, model MAN
+SET AUTOTRACE ON;
 select distinct
   r.*
 from
