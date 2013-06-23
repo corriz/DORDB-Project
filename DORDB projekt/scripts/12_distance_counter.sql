@@ -18,7 +18,7 @@ BEGIN
   j.vypujceni_id = vypujceni.vypujcka_id
   where VYPUJCENI.RIDIC_ID = RID;
   
-  SELECT v.vzdalenost_celkem INTO CELKEM FROM vypujceni v WHERE v.ridic_id = RID;
+  SELECT SUM(v.vzdalenost_celkem) INTO CELKEM FROM vypujceni v WHERE v.ridic_id = RID;
   
   PRUMER := CELKEM / POCET_JIZD;
   UPDATE RIDICI SET PRUMER_VZDALENOST = PRUMER WHERE RIDICI.RIDIC_ID = RID;
