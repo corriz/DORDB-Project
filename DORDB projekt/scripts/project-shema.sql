@@ -1,7 +1,7 @@
 CREATE TABLE Jizdy
 (
 	jizda_id      NUMBER(8,2) NOT NULL,
-	"start"         VARCHAR2(100) NOT NULL,
+	"START"         VARCHAR2(100) NOT NULL,
 	cil           VARCHAR2(100) NOT NULL,
 	datum         DATE NOT NULL,
 	vzdalenost    NUMBER(8,2) NOT NULL,

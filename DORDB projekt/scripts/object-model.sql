@@ -59,7 +59,7 @@ CREATE TABLE OBJ_VOZIDLO of TYPE_VOZIDLO
 foreign key (POBOCKA_ID) references OBJ_POBOCKA);
 
 CREATE TABLE OBJ_VYPUJCENI of TYPE_VYPUJCENI
-(foreign key (RIDIC_ID) references OBJ_RIDICI,
+(foreign key (RIDIC_ID) references OBJ_RIDIC,
 foreign key (VOZIDLO_ID) references OBJ_VOZIDLO);
 
 CREATE TABLE OBJ_JIZDY of TYPE_JIZDY
