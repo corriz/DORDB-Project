@@ -222,8 +222,86 @@ body {
 						<h4>15. Navrhněte slovně fakta a dimenze pro datový sklad vycházející z vaší databáze. Popište, k jakým analýzám bude možné
 							tento sklad využít. Identifikujte tabulky/sloupce, ke kterým bude nutné v datovém skladu navíc evidovat historické hodnoty (pokud
 							již v provozní databázi nejsou k dispozici).</h4>
-						<p>Maecenas sed diam eget risus varius blandit sit amet non
-							magna.</p>
+						<p>
+							Datový sklad by byl složen z dimezní DATUM, POBOCKA, RIDIC, VOZIDLO, MODEL a VYPUJCENI a tabulka faktů by byla JIZDY.
+							Využití datového skladu je možné pro analýzu ujetých kilometrů a to jak z podledu řidičů, poboček nebo jednotlivých 
+							vozidel. Dále je možné analýzu agregovat podle datumu jako jsou dny, týdny, měsíce nebo roky.
+						</p>
+						<p>
+							<strong>Fakta</strong>
+							<ul>
+								<li>
+									JIZDY<br />
+									<ul>
+										<li>DATUM_ID {FK}</li>
+										<li>POBOCKA_ID {FK}</li>
+										<li>RIDIC_ID {FK}</li>
+										<li>VOZIDLO_ID {FK}</li>
+										<li>MODEL_ID {FK}</li>
+										<li>VYPUJCENI_ID {FK}</li>
+										<li>VZDALENOST</li>
+									</ul>
+								</li>
+							</ul>
+						</p>
+						<p>
+							<strong>Dimenze</strong>
+							<ul>
+								<li>
+									DATUM<br/>
+									<ul>
+										<li>DATUM_ID</li>
+										<li>DEN</li>
+										<li>TYDEN</li>
+										<li>MESIC</li>
+										<li>ROK</li>
+									</ul>
+								</li>
+								<li>
+									POBOCKA<br/>
+									<ul>
+										<li>POBOCKA_ID</li>
+										<li>MESTO</li>
+										<li>ADRESA</li>
+										<li>STAT</li>
+									</ul>
+								</li>
+								<li>
+									RIDIC<br/>
+									<ul>
+										<li>RIDIC_ID</li>
+										<li>JMENO</li>
+										<li>PRIJMENI</li>
+										<li>OSOBNI_CISLO</li>
+									</ul>
+								</li>
+								<li>
+									VOZIDLO<br/>
+									<ul>
+										<li>VOZIDLO_ID</li>
+										<li>SPZ</li>
+									</ul>
+								</li>
+								<li>
+									MODEL<br/>
+									<ul>
+										<li>MODEL_ID</li>
+										<li>ZNACKA</li>
+										<li>MODEL</li>
+										<li>OBSAH</li>
+										<li>SPOTREBA</li>
+									</ul>
+								</li>
+								<li>
+									VYPUJCENI<br/>
+									<ul>
+										<li>VYPUJCENI_ID</li>
+										<li>DATUM_VYPUJCENI</li>
+										<li>DATUM_VRACENI</li>
+									</ul>
+								</li>
+							</ul>
+						</p>
 					</div>
 				</div>
 			</div>
